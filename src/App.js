@@ -612,9 +612,144 @@ function ExportBox(props) {
   );
 }
 
+
+// ── MentionsLegales ──
+function MentionsLegales(props) {
+  var onBack = props.onBack;
+  var G="#22c55e",BD="#1a2535",BG="#0b0f18",MU="#4a6070",DIM="#2a3a50";
+  var s = {h2:{fontSize:16,fontWeight:700,color:"white",margin:"28px 0 10px",paddingTop:8,borderTop:"1px solid "+BD},p:{fontSize:13,color:"#a7c4ae",marginBottom:12,lineHeight:1.75},a:{color:G,textDecoration:"none"},block:{background:"#131c2a",border:"1px solid "+BD,borderRadius:10,padding:"16px 18px",margin:"12px 0",fontSize:13,color:"#a7c4ae",lineHeight:1.8},warn:{background:"rgba(251,191,36,.07)",border:"1px solid rgba(251,191,36,.2)",borderRadius:10,padding:"14px 16px",margin:"16px 0",fontSize:12,color:"#fde68a",lineHeight:1.6}};
+  return (
+    <div style={{minHeight:"100vh",background:BG,color:"#dde4f0",fontFamily:"system-ui,-apple-system,sans-serif"}}>
+      <div style={{background:"rgba(11,15,24,.95)",borderBottom:"1px solid "+BD,padding:"0 20px",height:52,display:"flex",alignItems:"center",justifyContent:"space-between",position:"sticky",top:0,zIndex:99}}>
+        <div style={{display:"flex",alignItems:"center",gap:10}}>
+          <div style={{width:28,height:28,borderRadius:7,background:"linear-gradient(135deg,#22c55e,#15803d)",display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"Georgia,serif",fontSize:14,fontWeight:900,color:"white"}}>€</div>
+          <span style={{fontWeight:800,fontSize:16,color:"white"}}>Ree<span style={{color:G}}>lo</span></span>
+        </div>
+        <button onClick={onBack} style={{fontSize:12,color:MU,background:"none",border:"1px solid "+BD,borderRadius:20,padding:"5px 14px",cursor:"pointer"}}>← Retour</button>
+      </div>
+      <div style={{maxWidth:680,margin:"0 auto",padding:"40px 20px 80px"}}>
+        <div style={{fontSize:11,fontWeight:700,color:G,letterSpacing:"0.1em",textTransform:"uppercase",marginBottom:8}}>Informations légales</div>
+        <h1 style={{fontFamily:"serif",fontSize:"clamp(26px,5vw,38px)",color:"white",marginBottom:6,lineHeight:1.1}}>Mentions légales</h1>
+        <div style={{fontSize:11,color:MU,marginBottom:36,paddingBottom:20,borderBottom:"1px solid "+BD}}>Dernière mise à jour : mai 2025</div>
+
+        <h2 style={s.h2}>1. Éditeur du site</h2>
+        <div style={s.block}>
+          <b style={{color:"white",display:"block",marginBottom:4}}>Dénomination</b> Reelo<br/>
+          <b style={{color:"white",display:"block",marginTop:10,marginBottom:4}}>Statut juridique</b> Micro-entrepreneur (immatriculation en cours)<br/>
+          <b style={{color:"white",display:"block",marginTop:10,marginBottom:4}}>Adresse</b> Saint-Étienne-sur-Chalaronne, Ain (01140), France<br/>
+          <b style={{color:"white",display:"block",marginTop:10,marginBottom:4}}>Contact</b> <a href="mailto:contact@reelo.fr" style={s.a}>contact@reelo.fr</a>
+        </div>
+
+        <h2 style={s.h2}>2. Hébergement</h2>
+        <div style={s.block}>
+          <b style={{color:"white",display:"block",marginBottom:4}}>Hébergeur</b> Vercel Inc.<br/>
+          <b style={{color:"white",display:"block",marginTop:10,marginBottom:4}}>Adresse</b> 340 Pine Street, Suite 701 — San Francisco, CA 94104 — États-Unis<br/>
+          <b style={{color:"white",display:"block",marginTop:10,marginBottom:4}}>Site</b> <a href="https://vercel.com" target="_blank" style={s.a}>vercel.com</a>
+        </div>
+
+        <h2 style={s.h2}>3. Nature du service</h2>
+        <p style={s.p}>Reelo est un outil de simulation et d'aide au calcul des frais réels professionnels déductibles dans le cadre de la déclaration annuelle de revenus en France (article 83 du Code général des impôts).</p>
+        <div style={s.warn}>⚠️ Reelo est un outil indicatif. Les calculs sont basés sur les barèmes officiels DGFIP 2024 mais ne constituent pas un conseil fiscal, comptable ou juridique. En cas de doute, consultez un professionnel habilité.</div>
+
+        <h2 style={s.h2}>4. Propriété intellectuelle</h2>
+        <p style={s.p}>L'ensemble des éléments constituant le site Reelo (nom, logo, design, code source, textes) est la propriété exclusive de son éditeur et est protégé par les lois françaises et internationales relatives à la propriété intellectuelle.</p>
+
+        <h2 style={s.h2}>5. Données personnelles</h2>
+        <p style={s.p}>Reelo a été conçu selon le principe de <b style={{color:"#c4ddc9"}}>privacy by design</b> : les données saisies dans le calculateur restent sur votre appareil et ne sont jamais transmises à un serveur distant.</p>
+
+        <h2 style={s.h2}>6. Cookies</h2>
+        <p style={s.p}>Reelo n'utilise aucun cookie de traçage ou publicitaire. La sauvegarde des données s'effectue via le stockage local de votre appareil, accessible uniquement depuis votre appareil.</p>
+
+        <h2 style={s.h2}>7. Limitation de responsabilité</h2>
+        <p style={s.p}>L'éditeur ne saurait être tenu responsable d'erreurs dans les calculs, ni des conséquences fiscales d'une déclaration basée sur les résultats fournis. L'utilisateur est seul responsable de l'exactitude des informations saisies et doit conserver tous ses justificatifs.</p>
+
+        <h2 style={s.h2}>8. Contact</h2>
+        <p style={s.p}>Pour toute question : <a href="mailto:contact@reelo.fr" style={s.a}>contact@reelo.fr</a></p>
+      </div>
+    </div>
+  );
+}
+
+// ── Confidentialite ──
+function Confidentialite(props) {
+  var onBack = props.onBack;
+  var G="#22c55e",A="#fbbf24",BD="#1a2535",BG="#0b0f18",MU="#4a6070";
+  var s = {h2:{fontSize:16,fontWeight:700,color:"white",margin:"28px 0 10px",paddingTop:8,borderTop:"1px solid "+BD},h3:{fontSize:14,fontWeight:700,color:"#c4ddc9",margin:"16px 0 6px"},p:{fontSize:13,color:"#a7c4ae",marginBottom:12,lineHeight:1.75},a:{color:G,textDecoration:"none"},block:{background:"#131c2a",border:"1px solid "+BD,borderRadius:10,padding:"16px 18px",margin:"12px 0",fontSize:13,color:"#a7c4ae",lineHeight:1.8},hi:{background:"rgba(34,197,94,.06)",border:"1px solid rgba(34,197,94,.18)",borderRadius:10,padding:"14px 16px",margin:"14px 0",fontSize:13,color:"#a7ddb5",lineHeight:1.7}};
+  var droits = [
+    {ic:"👁️",t:"Droit d'accès",d:"Savoir quelles données nous détenons sur vous"},
+    {ic:"✏️",t:"Droit de rectification",d:"Corriger des données inexactes"},
+    {ic:"🗑️",t:"Droit à l'effacement",d:"Demander la suppression de vos données"},
+    {ic:"🚫",t:"Droit d'opposition",d:"Vous opposer au traitement"},
+    {ic:"📦",t:"Droit à la portabilité",d:"Recevoir vos données dans un format lisible"},
+    {ic:"⏸️",t:"Droit à la limitation",d:"Limiter l'usage de vos données"},
+  ];
+  return (
+    <div style={{minHeight:"100vh",background:BG,color:"#dde4f0",fontFamily:"system-ui,-apple-system,sans-serif"}}>
+      <div style={{background:"rgba(11,15,24,.95)",borderBottom:"1px solid "+BD,padding:"0 20px",height:52,display:"flex",alignItems:"center",justifyContent:"space-between",position:"sticky",top:0,zIndex:99}}>
+        <div style={{display:"flex",alignItems:"center",gap:10}}>
+          <div style={{width:28,height:28,borderRadius:7,background:"linear-gradient(135deg,#22c55e,#15803d)",display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"Georgia,serif",fontSize:14,fontWeight:900,color:"white"}}>€</div>
+          <span style={{fontWeight:800,fontSize:16,color:"white"}}>Ree<span style={{color:G}}>lo</span></span>
+        </div>
+        <button onClick={onBack} style={{fontSize:12,color:MU,background:"none",border:"1px solid "+BD,borderRadius:20,padding:"5px 14px",cursor:"pointer"}}>← Retour</button>
+      </div>
+      <div style={{maxWidth:680,margin:"0 auto",padding:"40px 20px 80px"}}>
+        <div style={{fontSize:11,fontWeight:700,color:G,letterSpacing:"0.1em",textTransform:"uppercase",marginBottom:8}}>RGPD · Vie privée</div>
+        <h1 style={{fontFamily:"serif",fontSize:"clamp(26px,5vw,38px)",color:"white",marginBottom:6,lineHeight:1.1}}>Politique de confidentialité</h1>
+        <div style={{fontSize:11,color:MU,marginBottom:36,paddingBottom:20,borderBottom:"1px solid "+BD}}>Dernière mise à jour : mai 2025 · Conforme au RGPD (UE) 2016/679</div>
+
+        <div style={s.hi}><b style={{color:G}}>L'essentiel en 3 lignes :</b> Reelo ne collecte aucune donnée via son calculateur. Vos données fiscales restent sur votre appareil. Seul votre email est collecté si vous vous inscrivez volontairement pour un rappel annuel.</div>
+
+        <h2 style={s.h2}>1. Responsable du traitement</h2>
+        <div style={s.block}>
+          <b style={{color:"white",display:"block",marginBottom:4}}>Reelo</b> Micro-entrepreneur · Saint-Étienne-sur-Chalaronne (01140)<br/>
+          <b style={{color:"white",display:"block",marginTop:10,marginBottom:4}}>Contact DPO</b> <a href="mailto:privacy@reelo.fr" style={s.a}>privacy@reelo.fr</a>
+        </div>
+
+        <h2 style={s.h2}>2. Le calculateur — aucune donnée collectée</h2>
+        <p style={s.p}>Le calculateur Reelo fonctionne entièrement sur votre appareil. Les données saisies (salaire, frais, employeurs…) ne sont <b style={{color:"#c4ddc9"}}>jamais envoyées à un serveur</b>. La sauvegarde automatique s'effectue via le stockage local de votre appareil, accessible uniquement par vous.</p>
+
+        <h2 style={s.h2}>3. Le formulaire email — rappel annuel</h2>
+        <p style={s.p}>Si vous laissez votre email via le formulaire "Me rappeler pour 2026" :</p>
+        <div style={{overflowX:"auto",margin:"12px 0"}}>
+          <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
+            <tr><th style={{background:"#131c2a",border:"1px solid "+BD,padding:"8px 10px",textAlign:"left",color:"white"}}>Donnée</th><th style={{background:"#131c2a",border:"1px solid "+BD,padding:"8px 10px",textAlign:"left",color:"white"}}>Finalité</th><th style={{background:"#131c2a",border:"1px solid "+BD,padding:"8px 10px",textAlign:"left",color:"white"}}>Base légale</th><th style={{background:"#131c2a",border:"1px solid "+BD,padding:"8px 10px",textAlign:"left",color:"white"}}>Durée</th></tr>
+            <tr><td style={{border:"1px solid "+BD,padding:"8px 10px",color:"#a7c4ae"}}>Adresse email</td><td style={{border:"1px solid "+BD,padding:"8px 10px",color:"#a7c4ae"}}>Rappel annuel déclaration</td><td style={{border:"1px solid "+BD,padding:"8px 10px",color:"#a7c4ae"}}>Consentement (art. 6.1.a RGPD)</td><td style={{border:"1px solid "+BD,padding:"8px 10px",color:"#a7c4ae"}}>Jusqu'au désabonnement</td></tr>
+          </table>
+        </div>
+        <h3 style={s.h3}>Ce que nous ne faisons PAS avec votre email :</h3>
+        <p style={s.p}>Nous ne le vendons pas · Pas de publicité ciblée · Pas de démarchage intensif · Pas d'enrichissement avec d'autres données</p>
+
+        <h2 style={s.h2}>4. Cookies</h2>
+        <p style={s.p}>Reelo n'utilise aucun cookie de traçage ou publicitaire. Aucune régie publicitaire (Google Ads, Meta Pixel…) n'est installée.</p>
+
+        <h2 style={s.h2}>5. Vos droits</h2>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,margin:"12px 0"}}>
+          {droits.map(function(d,i){return(
+            <div key={i} style={{background:"#131c2a",border:"1px solid "+BD,borderRadius:9,padding:"12px"}}>
+              <div style={{fontSize:18,marginBottom:6}}>{d.ic}</div>
+              <div style={{fontSize:12,fontWeight:700,color:"white",marginBottom:3}}>{d.t}</div>
+              <div style={{fontSize:11,color:MU}}>{d.d}</div>
+            </div>
+          );})}
+        </div>
+        <p style={s.p}>Pour exercer ces droits : <a href="mailto:privacy@reelo.fr" style={s.a}>privacy@reelo.fr</a>. Réponse sous 30 jours.</p>
+        <p style={s.p}>Vous pouvez aussi contacter la <b style={{color:"#c4ddc9"}}>CNIL</b> : <a href="https://www.cnil.fr" target="_blank" style={s.a}>cnil.fr</a></p>
+
+        <h2 style={s.h2}>6. Sécurité</h2>
+        <p style={s.p}>Communications chiffrées en HTTPS · Accès restreint aux données · Prestataires conformes RGPD. En cas de violation de données, vous serez informé dans les délais RGPD.</p>
+
+        <h2 style={s.h2}>7. Contact</h2>
+        <p style={s.p}><a href="mailto:privacy@reelo.fr" style={s.a}>privacy@reelo.fr</a></p>
+      </div>
+    </div>
+  );
+}
+
 // ── LandingPage ──
 function LandingPage(props) {
   var onStart = props.onStart;
+  var onMentions = props.onMentions;
+  var onConfidentialite = props.onConfidentialite;
   var now = new Date();
   var minDiff = 9999; var minZone = "";
   var ZONES_L = [
@@ -788,8 +923,8 @@ function LandingPage(props) {
           <span style={{fontSize:13,fontWeight:700,color:"white"}}>Ree<span style={{color:G}}>lo</span></span>
         </div>
         <div style={{display:"flex",gap:16}}>
-          <span style={{fontSize:11,color:MU,cursor:"pointer"}} onClick={function(){alert("Reelo - Micro-entrepreneur - Saint-Etienne-sur-Chalaronne (01140) - contact@reelo.fr - Hebergeur : Vercel Inc.");}}>Mentions légales</span>
-          <span style={{fontSize:11,color:MU,cursor:"pointer"}} onClick={function(){alert("Politique de confidentialité : vos données restent sur votre appareil. Email uniquement pour rappels annuels. Contact : privacy@reelo.fr");}}>Confidentialité</span>
+          <span style={{fontSize:11,color:MU,cursor:"pointer"}} onClick={function(){onMentions();}}>Mentions légales</span>
+          <span style={{fontSize:11,color:MU,cursor:"pointer"}} onClick={function(){onConfidentialite();}}>Confidentialité</span>
           <a href="mailto:contact@reelo.fr" style={{fontSize:11,color:MU,textDecoration:"none"}}>Contact</a>
         </div>
       </div>
@@ -898,7 +1033,9 @@ export default function App() {
   ];
 
   if(view === "landing") {
-    return <LandingPage onStart={function(){setView("app");}}/>;
+    if(view === "mentions") return <MentionsLegales onBack={function(){setView("landing");}}/>;
+    if(view === "confidentialite") return <Confidentialite onBack={function(){setView("landing");}}/>;
+    return <LandingPage onStart={function(){setView("app");}} onMentions={function(){setView("mentions");}} onConfidentialite={function(){setView("confidentialite");}}/>;
   }
 
   return (
@@ -1077,6 +1214,11 @@ export default function App() {
 
       </div>
 
+      <div style={{textAlign:"center",padding:"16px",borderTop:"1px solid #1a2535",marginTop:8,display:"flex",justifyContent:"center",gap:20}}>
+        <span onClick={function(){setView("mentions");}} style={{fontSize:11,color:"#4a6070",cursor:"pointer",textDecoration:"underline"}}>Mentions légales</span>
+        <span onClick={function(){setView("confidentialite");}} style={{fontSize:11,color:"#4a6070",cursor:"pointer",textDecoration:"underline"}}>Confidentialité</span>
+        <a href="mailto:contact@reelo.fr" style={{fontSize:11,color:"#4a6070",textDecoration:"underline"}}>Contact</a>
+      </div>
       <style>{"* { box-sizing:border-box } input[type=number]::-webkit-inner-spin-button { opacity:.25 } select option { background:#090d14 } @media(min-width:860px){ #reelo-side { display:block !important; } }"}</style>
     </div>
   );
