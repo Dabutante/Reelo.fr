@@ -207,7 +207,7 @@ function Sec(props) {
       <div onClick={onToggle} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"14px 16px",cursor:"pointer",userSelect:"none"}}>
         <span style={{fontSize:14,fontWeight:700,color:"#c0d4e8"}}>{icon} {title}</span>
         <div style={{display:"flex",alignItems:"center",gap:8}}>
-          {badge != null && badge !== "" && badge > 0 && <span style={{fontSize:12,fontWeight:800,color:bc,background:bc+"18",padding:"2px 10px",borderRadius:20,fontFamily:"monospace"}}>{badge.toFixed ? badge.toFixed(0) + " €" : badge}</span>}
+          {badge != null && badge !== "" && (badge > 0 || typeof badge === "string") && <span style={{fontSize:11,fontWeight:800,color:bc,background:bc+"18",padding:"3px 10px",borderRadius:20,maxWidth:200,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap",display:"inline-block"}}>{typeof badge === "number" ? badge.toFixed(0) + " €" : badge}</span>}
           <span style={{color:MU,fontSize:26,display:"inline-block",transform:open?"rotate(180deg)":"none",transition:"transform .2s",lineHeight:1}}>&#9660;</span>
         </div>
       </div>
@@ -1023,7 +1023,7 @@ export default function App() {
   var minDiff = 9999; var minLabel = "";
   ZONES.forEach(function(z){
     var d = Math.ceil((z.date - now) / 864e5);
-    if(d >= 0 && d < minDiff){ minDiff = d; minLabel = z.label + " : J-" + d; }
+    if(d >= 0 && d < minDiff){ minDiff = d; minLabel = z.label + " · J-" + d; }
   });
 
   var ROW_DATA = [
@@ -1032,9 +1032,9 @@ export default function App() {
     ["Teletravail",calc.tele,VI],["Formation",calc.form,A],["Autres",calc.autres,"#94a3b8"]
   ];
 
+  if(view === "mentions") return <MentionsLegales onBack={function(){setView("landing");}}/>;
+  if(view === "confidentialite") return <Confidentialite onBack={function(){setView("landing");}}/>;
   if(view === "landing") {
-    if(view === "mentions") return <MentionsLegales onBack={function(){setView("landing");}}/>;
-    if(view === "confidentialite") return <Confidentialite onBack={function(){setView("landing");}}/>;
     return <LandingPage onStart={function(){setView("app");}} onMentions={function(){setView("mentions");}} onConfidentialite={function(){setView("confidentialite");}}/>;
   }
 
@@ -1042,7 +1042,7 @@ export default function App() {
     <div style={{minHeight:"100vh",background:BG,color:"#dde4f0",fontFamily:"system-ui,-apple-system,sans-serif"}}>
 
       <div style={{background:"#0f1520",borderBottom:"1px solid "+BD,padding:"0 16px",display:"flex",alignItems:"center",justifyContent:"space-between",height:52,position:"sticky",top:0,zIndex:99}}>
-        <div style={{display:"flex",alignItems:"center",gap:10}}>
+        <div onClick={function(){setView("landing");}} style={{display:"flex",alignItems:"center",gap:10,cursor:"pointer"}}>
           <Logo size={30}/>
           <div>
             <div style={{fontWeight:800,fontSize:18,letterSpacing:"-0.03em",lineHeight:1}}>Ree<span style={{color:G}}>lo</span></div>
@@ -1051,7 +1051,6 @@ export default function App() {
         </div>
         <div style={{display:"flex",alignItems:"center",gap:8}}>
           {saved && <span style={{fontSize:10,color:G,opacity:0.7}}>💾 sauvegarde</span>}
-          <button onClick={function(){setView("landing");}} style={{fontSize:11,color:MU,background:"none",border:"1px solid "+BD,borderRadius:20,padding:"4px 10px",cursor:"pointer",marginRight:4}}>Accueil</button>
           <span style={{fontSize:10,fontWeight:700,color:G,background:G+"15",border:"1px solid "+G+"30",padding:"3px 10px",borderRadius:20}}>Beta</span>
         </div>
       </div>
@@ -1079,7 +1078,7 @@ export default function App() {
 
         <div style={{flex:1,minWidth:0}}>
 
-          <Sec icon="&#9200;" title="Delai de declaration" badge={minDiff < 9999 ? minDiff : 0} badgeColor="#f87171" open={sec==="alerte"} onToggle={function(){o("alerte");}} color="#f87171">
+          <Sec icon="&#9200;" title="Delai de declaration" badge={minDiff < 9999 ? minLabel : 0} badgeColor={minDiff <= 5 ? "#f87171" : minDiff <= 15 ? "#fbbf24" : "#22c55e"} open={sec==="alerte"} onToggle={function(){o("alerte");}} color="#f87171">
             <AlerteDelai/>
           </Sec>
 
