@@ -806,10 +806,6 @@ export default function App() {
   var secState = useState("jours"); var sec = secState[0]; var setSec = secState[1];
   function o(id) { setSec(function(p){return p===id?null:id;}); }
 
-  if(view === "landing") {
-    return <LandingPage onStart={function(){setView("app");}}/>;
-  }
-
   var s1 = useState(36000);  var salaire = s1[0]; var setSalaire = s1[1];
   var s2 = useState(228);    var joursOuvres = s2[0]; var setJO = s2[1];
   var s3 = useState(25);     var joursCP = s3[0]; var setJCP = s3[1];
@@ -900,6 +896,10 @@ export default function App() {
     ["Peages",calc.totalPeage,"#94a3b8"],["Repas",calc.repas,O],
     ["Teletravail",calc.tele,VI],["Formation",calc.form,A],["Autres",calc.autres,"#94a3b8"]
   ];
+
+  if(view === "landing") {
+    return <LandingPage onStart={function(){setView("app");}}/>;
+  }
 
   return (
     <div style={{minHeight:"100vh",background:BG,color:"#dde4f0",fontFamily:"system-ui,-apple-system,sans-serif"}}>
